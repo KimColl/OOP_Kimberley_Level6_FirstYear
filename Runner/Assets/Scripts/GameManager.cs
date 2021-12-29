@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public void StartScene()
     {
         //SceneManager will be used so it can read the scenes which are in unity
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("WelcomeScene");
         //LoadScene is a method
     }
 
@@ -35,5 +35,6 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+        Debug.Log("Quit");
     }
 }
