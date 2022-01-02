@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Countdown : GameManager
 {
-    float startingTime = 25f;
+    float startingTime = 10f;
     float currentTime = 0f;
 
     //private variable

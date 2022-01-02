@@ -4,8 +4,30 @@ using UnityEngine;
 using UnityEngine.SceneManagement; //is a library unity which allows to manage the scenes
                                    //it is used so that I can load the scenes one after the other
 
+////add something to game manager file not to the class
+//public interface IDamage //interfces. Use I to indicate that it is an interface
+//{
+//    int playerHealth { get; set; } //can write and read from it
+
+//    void PlayerDamage(int damage);
+//}
+
 public class GameManager : MonoBehaviour
 {
+    //public static GameManager _GameInstance;
+
+    ////the awake method will still run if the camera is disabled but the start will not run if the camera is disabled
+    //private void Awake()
+    //{
+    //    if(_GameInstance == null) //singleton pattern
+    //    {
+    //        _GameInstance = this;
+    //    }
+    //    else if(_GameInstance != this)
+    //    {
+    //        Destroy(this.gameObject);
+    //    }
+    //}
     //it will load the first scene of the project
     public void StartScene()
     {
