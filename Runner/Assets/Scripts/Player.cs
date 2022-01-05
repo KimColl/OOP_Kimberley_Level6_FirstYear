@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
     // Start is called before the first frame update
     void Start()
     {
-        
+        PlayerMovementBoundaries();
     }
 
     // Update is called once per frame
@@ -25,7 +24,7 @@ public class Player : MonoBehaviour
         //deltaX means difference x
         //deltaX will have the difference in the x-axis which the Player moves
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * MoveSpeed();
-         
+
         //transform position of my player
         //newXPos = current x-position + difference in x
         var newXPos = transform.position.x + deltaX;
@@ -44,7 +43,6 @@ public class Player : MonoBehaviour
         newYPos = Mathf.Clamp(newYPos, GameData.YMin(), GameData.YMax());
 
         //move the Player ship to the newXPos 
-        //this.transform.position = new Vector2(newXPos, transform.position.y);
         //update the position of the Player
         this.transform.position = new Vector2(newXPos, newYPos);
 
@@ -54,5 +52,13 @@ public class Player : MonoBehaviour
     {
         float moveSpeed = 10f;
         return moveSpeed;
+    }
+
+    private void PlayerMovementBoundaries()
+    {
+        GameData.XMin();
+        GameData.XMax();
+        GameData.YMin();
+        GameData.YMax();
     }
 }
