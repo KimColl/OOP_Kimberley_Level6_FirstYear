@@ -2,33 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class Countdown2 : GameManager
+public class Countdown2 : MonoBehaviour
 {
-    float Timestarting = 25f;
-    float actualTime = 0f;
+    float startingTime = 10f;
+    float currentTime = 0f;
 
     //private variable
     [SerializeField] Text CountDownTimer;
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
-        actualTime = Timestarting;
+        currentTime = startingTime;
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
-        actualTime -= 1 * Time.deltaTime;
-        print(actualTime);
-        CountDownTimer.text = actualTime.ToString("0");
+        currentTime -= 1 * Time.deltaTime;
+        print(currentTime);
+        CountDownTimer.text = currentTime.ToString("0");
         CountDownTimer.color = Color.blue;
-        if (actualTime <= 0)
+        if (currentTime <= 1)
         {
             CountDownTimer.color = Color.red;
-            actualTime = 0;
-            base.EndGame();
+            currentTime = 0;
+            SceneManager.LoadScene("EndScene");
+
         }
     }
 }

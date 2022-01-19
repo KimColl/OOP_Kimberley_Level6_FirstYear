@@ -4,6 +4,35 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //static onstance of type player script which allows to be accessed only from the Player script and not from the other script
+    private static Player _playerInstance;
+
+    private Rigidbody2D playerRigidBody;
+
+    private BoxCollider2D playerBoxCollider;
+
+    [SerializeField] private LayerMask groundMask;
+
+    public static Player PlayerInstance
+    {
+        get { return _playerInstance; }
+    }
+
+    // is always called before the void Start() Method
+    private void Awake()
+    {
+        playerRigidBody = transform.GetComponent<Rigidbody2D>();
+        playerBoxCollider = transform.GetComponent<BoxCollider2D>();
+        if (_playerInstance != null && _playerInstance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        _playerInstance = this;
+        //sets this so the player will be destroyed when changing from one scene to another. 
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +75,11 @@ public class Player : MonoBehaviour
         //update the position of the Player
         this.transform.position = new Vector2(newXPos, newYPos);
 
+        if (ground() && Input.GetKeyDown(KeyCode.Space))
+        {
+            float playerVelocity = 7f;
+            playerRigidBody.velocity = Vector2.up * playerVelocity;
+        }
     }
 
     public static float MoveSpeed()
@@ -61,4 +95,12 @@ public class Player : MonoBehaviour
         GameData.YMin();
         GameData.YMax();
     }
+
+    private bool ground()
+    {
+        RaycastHit2D groundRayCast = Physics2D.BoxCast(playerBoxCollider.bounds.center, playerBoxCollider.bounds.size, 0f, Vector2.down * .2f, groundMask);
+        return groundRayCast.collider != null;
+    }
+
+    
 }

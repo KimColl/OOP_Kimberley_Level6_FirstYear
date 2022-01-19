@@ -2,33 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class Countdown : GameManager
+public class Countdown : Timer
 {
-    float startingTime = 10f;
-    float currentTime = 0f;
-
-    //private variable
-    [SerializeField] Text CountDownTimer;
-
-    // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        currentTime = startingTime;
+        base.Start();
+        
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        currentTime -= 1 * Time.deltaTime;
-        print(currentTime);
-        CountDownTimer.text = currentTime.ToString("0");
-        CountDownTimer.color = Color.blue;
-        if (currentTime <= 0)
-        {
-            CountDownTimer.color = Color.red;
-            currentTime = 0;
-            base.GameLevel2();
-        }
+        base.Update();
     }
+
 }

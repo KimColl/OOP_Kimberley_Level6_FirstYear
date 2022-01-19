@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameData : MonoBehaviour
+public abstract class GameData : MonoBehaviour
 {
+    private static int _PlayerScore;
+    private static int _PlayerLives;
+    private static int _PlayerHighScore;
 
     //The below float methods are going to be used so that the player will not pass the camera points
     public static float XMin() //statics make an attribute/method class level.. no need of objects
@@ -28,6 +31,24 @@ public class GameData : MonoBehaviour
     {
         float YMax = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - 1.5f;
         return YMax;
+    }
+
+    public static int PlayerScore
+    {
+        get { return _PlayerScore; }
+        set { _PlayerScore = value; }
+    }
+
+    public static int PlayerLives
+    {
+        get { return _PlayerLives; }
+        set { _PlayerLives = value; }
+    }
+
+    public static int PlayerHighScore
+    {
+        get { return _PlayerHighScore; }
+        set { _PlayerHighScore = value; }
     }
 
 }

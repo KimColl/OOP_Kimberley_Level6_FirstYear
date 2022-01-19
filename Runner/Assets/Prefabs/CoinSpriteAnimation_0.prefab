@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3584688864941670952}
   - component: {fileID: 3584688864941670955}
   - component: {fileID: 3584688864941670954}
+  - component: {fileID: -5144751267057284636}
+  - component: {fileID: 8468989074358274882}
   m_Layer: 0
   m_Name: CoinSpriteAnimation_0
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3584688864941670957}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.2291, y: -0.5138, z: 0}
-  m_LocalScale: {x: 0.04111156, y: 0.04111156, z: 0.04111156}
+  m_LocalScale: {x: 0.02162879, y: 0.02162879, z: 0.02162879}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -102,3 +104,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &-5144751267057284636
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3584688864941670957}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 14.064999
+--- !u!114 &8468989074358274882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3584688864941670957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0ff3a5cf6048974b9e11ea99ca64cd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinSoundEffect: 0.75
+  coinSound: {fileID: 8300000, guid: bfc8f72a27a75734fa2e131ee03ef98e, type: 3}
