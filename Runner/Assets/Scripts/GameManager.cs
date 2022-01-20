@@ -45,20 +45,68 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    // Use this for initialization
+    private void Start()
+    {
+        GameData.PlayerScore = 0;
+        GameData.PlayerLives = 2;
+        GameData.PlayerHighScore = 0;
+        GetComponent<SaveLoadManager>().LoadMyData();
+        playerScoreText.text = "Score: " + GameData.PlayerScore.ToString();
+        livesText.text = "Lives: " + GameData.PlayerLives.ToString();
+        hscoreText.text = "High Score: " + GameData.PlayerHighScore.ToString();
+    }
+
+    public void CoinScore()
+    {
+        GameData.PlayerScore++;
+        playerScoreText.text = "Score: " + GameData.PlayerScore.ToString();
+        GetComponent<SaveLoadManager>().SaveMyData();
+    }
+
+    public void ConstantEnemyDie()
+    {
+        SceneManager.LoadScene("EndGame");
+        GetComponent<SaveLoadManager>().SaveMyData();
+    }
+
+    public void PlayerDie()
+    {
+        GameData.PlayerLives--;
+        livesText.text = "Lives: " + GameData.PlayerLives.ToString();
+        if (GameData.PlayerLives > 0)
+        {
+            Instantiate(playerPrefab, new Vector3(-5f, 0f, 0f), Quaternion.identity);
+            GetComponent<SaveLoadManager>().SaveMyData();
+        }
+        else
+            SceneManager.LoadScene("EndGame");
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "GameOver")
+        {
+            print("Score = " + GameData.PlayerScore.ToString());
+            Text myscoretext = GameObject.Find("Scoretext").GetComponent<Text>();
+            myscoretext.text = "Score : " + GameData.PlayerScore.ToString();
+            Text myhscoretext = GameObject.Find("Highscoretext").GetComponent<Text>();
+            myhscoretext.text = "High Score : " + GameData.PlayerHighScore.ToString();
+
+            if (GameData.PlayerScore > GameData.PlayerHighScore) GameData.PlayerHighScore = GameData.PlayerScore;
+            GameData.PlayerScore = 0;
+            GameData.PlayerLives = 3;
+            GetComponent<SaveLoadManager>().SaveMyData();
+
+        }
+    }
+
     //it will load the first scene of the project
     public void StartScene()
     {
         //SceneManager will be used so it can read the scenes which are in unity
         SceneManager.LoadScene("WelcomeScene");
         //LoadScene is a method
-
-        GameData.PlayerScore = 0;
-        GameData.PlayerLives = 2;
-        GameData.PlayerHighScore = 0;
-        GetComponent<SavingLoadingManager>().LoadMyData();
-        playerScoreText.text = "Score: " + GameData.PlayerScore.ToString();
-        livesText.text = "Lives: " + GameData.PlayerLives.ToString();
-        hscoreText.text = "High Score: " + GameData.PlayerHighScore.ToString();
     }
 
     //loads the scene with the name of GameScene
@@ -83,25 +131,5 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quit");
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name == "GameOver" || scene.name == "Win")
-        {
-            print("Score = " + GameData.PlayerScore.ToString());
-            Text myscoretext = GameObject.Find("Scoretext").GetComponent<Text>();
-            myscoretext.text = "Score : " + GameData.PlayerScore.ToString();
-
-            //HIGH SCORE CHECK, CHANGE IF NEED BE AND DISPLAY
-            if (GameData.PlayerScore > GameData.PlayerHighScore) GameData.PlayerHighScore = GameData.PlayerScore;  //CHECK IF HIGH SCORE NEEDS UPDATE
-            Text myhscoretext = GameObject.Find("Highscoretext").GetComponent<Text>();
-            myhscoretext.text = "High Score : " + GameData.PlayerHighScore.ToString();
-
-            GameData.PlayerScore = 0;
-            GameData.PlayerLives = 2;
-            GetComponent<SavingLoadingManager>().SaveMyData();
-
-        }
     }
 }

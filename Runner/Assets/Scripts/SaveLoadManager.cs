@@ -17,17 +17,16 @@ public class SaveLoadManager : MonoBehaviour
 
         string jsontosave = JsonUtility.ToJson(myserializedData);
         Debug.Log(jsontosave);
-        PlayerPrefs.SetString("Runner", jsontosave);
+        PlayerPrefs.SetString("RunnerData", jsontosave);
 
     }
-
 
     public void LoadMyData()
     {
         string loadedjson;
-        if (PlayerPrefs.HasKey("Runner"))
+        if (PlayerPrefs.HasKey("TanksData"))
         {
-            loadedjson = PlayerPrefs.GetString("Runner");
+            loadedjson = PlayerPrefs.GetString("TanksData");
             myserializedData = JsonUtility.FromJson<SerializedData>(loadedjson);
             GameData.PlayerScore = myserializedData.ser_PlayerScore;
             GameData.PlayerLives = myserializedData.ser_PlayerLives;
@@ -35,3 +34,4 @@ public class SaveLoadManager : MonoBehaviour
         }
     }
 }
+

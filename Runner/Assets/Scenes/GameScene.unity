@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &35601647 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 107616709322174228, guid: 21f9d5e522b05de4da62cafa77ebd458, type: 3}
+  m_PrefabInstance: {fileID: 107616708738183393}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &39366992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -426,6 +437,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3584688864941670952, guid: bc407b408aea33d48986efd04d500579, type: 3}
   m_PrefabInstance: {fileID: 250382553}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &384573193 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 107616709299824574, guid: 21f9d5e522b05de4da62cafa77ebd458, type: 3}
+  m_PrefabInstance: {fileID: 107616708738183393}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,9 +916,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1034630218782216616, guid: 4d80edf0b320c5446b4514764e4831b6, type: 3}
+      propertyPath: livesText
+      value: 
+      objectReference: {fileID: 384573193}
+    - target: {fileID: 1034630218782216616, guid: 4d80edf0b320c5446b4514764e4831b6, type: 3}
+      propertyPath: hscoreText
+      value: 
+      objectReference: {fileID: 35601647}
+    - target: {fileID: 1034630218782216616, guid: 4d80edf0b320c5446b4514764e4831b6, type: 3}
       propertyPath: playerPrefab
       value: 
       objectReference: {fileID: 5508487440312389164}
+    - target: {fileID: 1034630218782216616, guid: 4d80edf0b320c5446b4514764e4831b6, type: 3}
+      propertyPath: playerScoreText
+      value: 
+      objectReference: {fileID: 1859575505}
     - target: {fileID: 2130773218155523349, guid: 4d80edf0b320c5446b4514764e4831b6, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -1179,6 +1213,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3584688864941670952, guid: bc407b408aea33d48986efd04d500579, type: 3}
   m_PrefabInstance: {fileID: 1732109726}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1859575505 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 107616709582532534, guid: 21f9d5e522b05de4da62cafa77ebd458, type: 3}
+  m_PrefabInstance: {fileID: 107616708738183393}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2034041818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1534,6 +1579,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7112647011034255537, guid: 42e53932aefac16429e885ae555d2c34, type: 3}
+      propertyPath: livesText
+      value: 
+      objectReference: {fileID: 384573193}
+    - target: {fileID: 7112647011034255537, guid: 42e53932aefac16429e885ae555d2c34, type: 3}
+      propertyPath: hscoreText
+      value: 
+      objectReference: {fileID: 35601647}
+    - target: {fileID: 7112647011034255537, guid: 42e53932aefac16429e885ae555d2c34, type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 5508487440312389164}
+    - target: {fileID: 7112647011034255537, guid: 42e53932aefac16429e885ae555d2c34, type: 3}
+      propertyPath: playerScoreText
+      value: 
+      objectReference: {fileID: 1859575505}
     - target: {fileID: 8680433158762066114, guid: 42e53932aefac16429e885ae555d2c34, type: 3}
       propertyPath: m_Name
       value: ChangeScene

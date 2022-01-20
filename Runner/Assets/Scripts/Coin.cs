@@ -8,15 +8,19 @@ public class Coin : MonoBehaviour
 
     [SerializeField] AudioClip coinSound;
 
+    private GameManager gameManagerCoin;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             print("Destroy Coin");
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(coinSound, Camera.main.transform.position, coinSoundEffect);
+            gameManagerCoin.CoinScore();
         }
     }
 
-
 }
+
+
