@@ -14,10 +14,12 @@ public class Coin : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            print("Destroy Coin");
+            Debug.Log("Destroy Coin");
             Destroy(gameObject);
             AudioSource.PlayClipAtPoint(coinSound, Camera.main.transform.position, coinSoundEffect);
-            gameManagerCoin.CoinScore();
+            //gameManagerCoin.CoinScore();
+            GameManager._GameInstance.AddScore();
+
         }
     }
 

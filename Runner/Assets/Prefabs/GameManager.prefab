@@ -46,4 +46,4 @@ MonoBehaviour:
   playerScoreText: {fileID: 0}
   livesText: {fileID: 0}
   hscoreText: {fileID: 0}
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 5508487441127536955, guid: 363483902cd2b1d44b8411dd00a1b405, type: 3}

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement; //is a library unity which allows to manage the scenes
                                    //it is used so that I can load the scenes one after the other
 
-////add something to game manager file not to the class
+//add something to game manager file not to the class
 public interface IDamage //interfces. Use I to indicate that it is an interface
 {
     int health { get; set; } //can write and read from it
@@ -43,6 +43,26 @@ public class GameManager : MonoBehaviour
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void HighScore()
+    {
+        if(GameData.PlayerHighScore > PlayerPrefs.GetInt("highScore"))
+        {
+            PlayerPrefs.SetInt("highScore", GameData.PlayerHighScore);
+        }
+    }
+
+    public void AddScore()
+    {
+        GameData.PlayerScore += 1;
+        playerScoreText.text = GameData.PlayerScore.ToString();
+    }
+
+    public void ReduceHealth()
+    {
+        GameData.PlayerLives -= 1;
+        hscoreText.text = GameData.PlayerLives.ToString();
     }
 
     // Use this for initialization

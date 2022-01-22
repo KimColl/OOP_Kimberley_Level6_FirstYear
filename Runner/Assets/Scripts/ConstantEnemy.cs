@@ -35,5 +35,15 @@ public class ConstantEnemy : MonoBehaviour
 
     // Returns input values of 0, 1 or -1 based on whether Player tries to move forward or back
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Reduce Lives");
+            Destroy(gameObject);
+            GameManager._GameInstance.ReduceHealth();
+
+        }
+    }
 }
 
