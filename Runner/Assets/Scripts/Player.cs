@@ -13,11 +13,6 @@ public class Player : MonoBehaviour
 
     [SerializeField] private LayerMask groundMask;
 
-    //public static Player PlayerInstance
-    //{
-    //    get { return _playerInstance; }
-    //}
-
     // is always called before the void Start() Method
     private void Awake()
     {

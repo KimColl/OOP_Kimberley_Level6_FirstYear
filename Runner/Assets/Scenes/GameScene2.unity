@@ -877,6 +877,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoinSpriteAnimation_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3584688864941670957, guid: bc407b408aea33d48986efd04d500579, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc407b408aea33d48986efd04d500579, type: 3}
 --- !u!1001 &1220495774
@@ -1093,6 +1097,10 @@ PrefabInstance:
     - target: {fileID: 3584688864941670957, guid: bc407b408aea33d48986efd04d500579, type: 3}
       propertyPath: m_Name
       value: CoinSpriteAnimation_0 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584688864941670957, guid: bc407b408aea33d48986efd04d500579, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc407b408aea33d48986efd04d500579, type: 3}
@@ -1871,6 +1879,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoinSpriteAnimation_0 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3584688864941670957, guid: bc407b408aea33d48986efd04d500579, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc407b408aea33d48986efd04d500579, type: 3}
 --- !u!1001 &1997900761
@@ -2064,8 +2076,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1262040001875824383, guid: 4d80edf0b320c5446b4514764e4831b6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4d80edf0b320c5446b4514764e4831b6, type: 3}
+--- !u!1 &2021276002128792931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2130773218155523349, guid: 4d80edf0b320c5446b4514764e4831b6, type: 3}
+  m_PrefabInstance: {fileID: 2021276002128792930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2021276002128792932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021276002128792931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cacc9108478604b82a573d097cde25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3096334054050161319
 GameObject:
   m_ObjectHideFlags: 0

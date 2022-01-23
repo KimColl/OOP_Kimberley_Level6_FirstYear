@@ -9,7 +9,7 @@ public class ButtonManager2 : MonoBehaviour
 
     void Start()
     {
-        //Calls the TaskOnClick/TaskWithParameters/ButtonClicked method when you click the Button
+        //Calls the Welcome/StartGame/QuitGame method when you click the Button
         welcomeButton.onClick.AddListener(Welcome);
         level1Button.onClick.AddListener(StartGame);
         quitButton.onClick.AddListener(QuitGame);
@@ -18,15 +18,15 @@ public class ButtonManager2 : MonoBehaviour
 
     private void Welcome()
     {
-        //Output this to console when Button1 or Button3 is clicked
-        Debug.Log("Welcome");
+        //Output this to console when Button1 is clicked
+        Debug.Log("Welcome - Game Runner");
         SceneManager.LoadScene("WelcomeScene");
     }
 
     private void StartGame()
     {
-        //Output this to console when Button1 or Button3 is clicked
-        Debug.Log("Game!");
+        //Output this to console when Button2 is clicked
+        Debug.Log("Game - Play Level 1");
         SceneManager.LoadScene("GameScene");
     }
 
@@ -34,7 +34,7 @@ public class ButtonManager2 : MonoBehaviour
     private void QuitGame()
     {
 
-        //Output this to console when Button1 is clicked
+        //Output this to console when Button3 is clicked
         Debug.Log("You have clicked the quit button!");
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;

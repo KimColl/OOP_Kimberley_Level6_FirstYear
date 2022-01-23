@@ -9,6 +9,7 @@ public class SaveLoadManager : MonoBehaviour
     {
         serializedData = new SerializedData();
     }
+
     public void SaveData()
     {
         serializedData.ser_PlayerScore = GameData.PlayerScore;
@@ -23,11 +24,11 @@ public class SaveLoadManager : MonoBehaviour
 
     public void LoadData()
     {
-        string loadedjson;
+        string loadedjsonData;
         if (PlayerPrefs.HasKey("RunnerData"))
         {
-            loadedjson = PlayerPrefs.GetString("RunnerData");
-            serializedData = JsonUtility.FromJson<SerializedData>(loadedjson);
+            loadedjsonData = PlayerPrefs.GetString("RunnerData");
+            serializedData = JsonUtility.FromJson<SerializedData>(loadedjsonData);
             GameData.PlayerScore = serializedData.ser_PlayerScore;
             GameData.PlayerLives = serializedData.ser_PlayerLives;
             GameData.PlayerHighScore = serializedData.ser_PlayerHighScore;

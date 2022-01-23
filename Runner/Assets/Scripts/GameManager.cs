@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Use this for initialization
-    private void Start()
+    void Start()
     {
         GameData.PlayerScore = 0;
         GameData.PlayerLives = 2;
@@ -82,12 +82,18 @@ public class GameManager : MonoBehaviour
         GameData.PlayerScore++;
         playerScoreText.text = "Score: " + GameData.PlayerScore.ToString();
         GetComponent<SaveLoadManager>().SaveData();
+        if (GameData.PlayerLives < 5)
+        {
+            GetComponent<SaveLoadManager>().SaveData();
+        }
+        else
+            SceneManager.LoadScene("EndGame");
     }
 
     public void ConstantEnemyDie()
     {
         SceneManager.LoadScene("EndGame");
-        GetComponent<SaveLoadManager>().SaveData();
+        GetComponent<SavingLoading>().SaveData1();
     }
 
     public void PlayerDie()
@@ -97,7 +103,7 @@ public class GameManager : MonoBehaviour
         if (GameData.PlayerLives > 0)
         {
             Instantiate(playerPrefab, new Vector3(-5f, 0f, 0f), Quaternion.identity);
-            GetComponent<SaveLoadManager>().SaveData();
+            GetComponent<SavingLoading>().SaveData1();
         }
         else
             SceneManager.LoadScene("EndGame");
@@ -108,48 +114,17 @@ public class GameManager : MonoBehaviour
         if (scene.name == "GameOver")
         {
             print("Score = " + GameData.PlayerScore.ToString());
-            Text myscoretext = GameObject.Find("Scoretext").GetComponent<Text>();
-            myscoretext.text = "Score : " + GameData.PlayerScore.ToString();
-            Text myhscoretext = GameObject.Find("Highscoretext").GetComponent<Text>();
-            myhscoretext.text = "High Score : " + GameData.PlayerHighScore.ToString();
+            Text scoretext = GameObject.Find("Scoretext").GetComponent<Text>();
+            scoretext.text = "Score : " + GameData.PlayerScore.ToString();
+            Text highscoretext = GameObject.Find("Highscoretext").GetComponent<Text>();
+            highscoretext.text = "High Score : " + GameData.PlayerHighScore.ToString();
 
             if (GameData.PlayerScore > GameData.PlayerHighScore) GameData.PlayerHighScore = GameData.PlayerScore;
             GameData.PlayerScore = 0;
-            GameData.PlayerLives = 3;
+            GameData.PlayerLives = 2;
             GetComponent<SaveLoadManager>().SaveData();
 
         }
     }
 
-    ////it will load the first scene of the project
-    //public void StartScene()
-    //{
-    //    //SceneManager will be used so it can read the scenes which are in unity
-    //    SceneManager.LoadScene("WelcomeScene");
-    //    //LoadScene is a method
-    //}
-
-    ////loads the scene with the name of GameScene
-    //public void Game()
-    //{
-    //    SceneManager.LoadScene("GameScene");
-    //}
-
-    //loads the scene with the name of GameScene2
-    //public void GameLevel2()
-    //{
-    //    SceneManager.LoadScene("GameScene2");
-    //}
-
-    ////loads the scene with the name of EndScene
-    //public void EndGame()
-    //{
-    //    SceneManager.LoadScene("EndScene");
-    //}
-
-    //public void QuitGame()
-    //{
-    //    Application.Quit();
-    //    Debug.Log("Quit");
-    //}
 }

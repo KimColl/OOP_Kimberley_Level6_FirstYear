@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameButton: {fileID: 521591606}
-  gameButton2: {fileID: 647054145}
+  endScene: {fileID: 647054145}
   quitButton: {fileID: 417520107}
 --- !u!4 &1901563611
 Transform:
@@ -358,6 +358,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2305666206979443046, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
+      propertyPath: m_Name
+      value: EndSceneButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2305666206979443047, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
       propertyPath: m_SizeDelta.x
       value: 347.113
@@ -469,6 +473,10 @@ PrefabInstance:
     - target: {fileID: 2305666207452623805, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2305666207523752173, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
+      propertyPath: m_Text
+      value: End
       objectReference: {fileID: 0}
     - target: {fileID: 2305666207523752173, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
       propertyPath: m_FontData.m_FontSize

@@ -25,26 +25,9 @@ public class Enemy : ConstantEnemy
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Destroy Coin");
+            Debug.Log("Destroy enemy");
             Destroy(gameObject);
             GameManager._GameInstance.ReduceHealth();
         }
     }
-    //private void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.gameObject.tag == "DestroyEnemy")
-    //    {
-    //        Destroy(this.gameObject);
-    //    }
-
-    //    if (other.gameObject.name.Contains("Bullet")) //arrange
-    //    {
-    //        Destroy(other.gameObject);
-
-
-    //        enemyDamage.characterDamage(1);
-
-
-    //    }
-    //}
 }
