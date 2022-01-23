@@ -19,7 +19,6 @@ public class Coin : MonoBehaviour
             AudioSource.PlayClipAtPoint(coinSound, Camera.main.transform.position, coinSoundEffect);
             //gameManagerCoin.CoinScore();
             GameManager._GameInstance.AddScore();
-
         }
     }
 

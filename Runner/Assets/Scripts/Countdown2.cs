@@ -6,20 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class Countdown2 : MonoBehaviour
 {
-    float startingTime = 10f;
-    float currentTime = 0f;
+    private float startingTime = 10f;
+    private float currentTime = 0f;
 
     //private variable
     [SerializeField] Text CountDownTimer;
 
     // Start is called before the first frame update
-    public virtual void Start()
+    void Start()
     {
         currentTime = startingTime;
     }
 
     // Update is called once per frame
-    public virtual void Update()
+    void Update()
     {
         currentTime -= 1 * Time.deltaTime;
         print(currentTime);

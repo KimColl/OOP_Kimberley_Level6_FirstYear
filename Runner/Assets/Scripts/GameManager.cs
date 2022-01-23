@@ -41,15 +41,15 @@ public class GameManager : MonoBehaviour
             //To have one instance of the GameManager script
             Destroy(this.gameObject);
         }
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoad;
         DontDestroyOnLoad(this.gameObject);
     }
 
     public void HighScore()
     {
-        if(GameData.PlayerHighScore > PlayerPrefs.GetInt("highScore"))
+        if(GameData.PlayerHighScore > PlayerPrefs.GetInt("_PlayerHighScore"))
         {
-            PlayerPrefs.SetInt("highScore", GameData.PlayerHighScore);
+            PlayerPrefs.SetInt("_PlayerHighScore", GameData.PlayerHighScore);
         }
     }
 
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         GameData.PlayerScore = 0;
         GameData.PlayerLives = 2;
         GameData.PlayerHighScore = 0;
-        GetComponent<SaveLoadManager>().LoadMyData();
+        GetComponent<SaveLoadManager>().LoadData();
         playerScoreText.text = "Score: " + GameData.PlayerScore.ToString();
         livesText.text = "Lives: " + GameData.PlayerLives.ToString();
         hscoreText.text = "High Score: " + GameData.PlayerHighScore.ToString();
@@ -81,13 +81,13 @@ public class GameManager : MonoBehaviour
     {
         GameData.PlayerScore++;
         playerScoreText.text = "Score: " + GameData.PlayerScore.ToString();
-        GetComponent<SaveLoadManager>().SaveMyData();
+        GetComponent<SaveLoadManager>().SaveData();
     }
 
     public void ConstantEnemyDie()
     {
         SceneManager.LoadScene("EndGame");
-        GetComponent<SaveLoadManager>().SaveMyData();
+        GetComponent<SaveLoadManager>().SaveData();
     }
 
     public void PlayerDie()
@@ -97,13 +97,13 @@ public class GameManager : MonoBehaviour
         if (GameData.PlayerLives > 0)
         {
             Instantiate(playerPrefab, new Vector3(-5f, 0f, 0f), Quaternion.identity);
-            GetComponent<SaveLoadManager>().SaveMyData();
+            GetComponent<SaveLoadManager>().SaveData();
         }
         else
             SceneManager.LoadScene("EndGame");
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "GameOver")
         {
@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
             if (GameData.PlayerScore > GameData.PlayerHighScore) GameData.PlayerHighScore = GameData.PlayerScore;
             GameData.PlayerScore = 0;
             GameData.PlayerLives = 3;
-            GetComponent<SaveLoadManager>().SaveMyData();
+            GetComponent<SaveLoadManager>().SaveData();
 
         }
     }
@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour
     //    SceneManager.LoadScene("GameScene");
     //}
 
-    ////loads the scene with the name of GameScene2
+    //loads the scene with the name of GameScene2
     //public void GameLevel2()
     //{
     //    SceneManager.LoadScene("GameScene2");

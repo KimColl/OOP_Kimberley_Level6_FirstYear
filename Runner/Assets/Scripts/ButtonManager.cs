@@ -16,21 +16,21 @@ public class ButtonManager : MonoBehaviour
 
     }
 
-    void StartGame()
+    private void StartGame()
     {
         //Output this to console when Button1 or Button3 is clicked
         Debug.Log("Game!");
         SceneManager.LoadScene("GameScene");
     }
 
-    void Level2()
+    private void Level2()
     {
         //Output this to console when Button1 or Button3 is clicked
         Debug.Log("Game - Level2");
         SceneManager.LoadScene("GameScene2");
     }
 
-    void QuitGame()
+    private void QuitGame()
     {
 
         //Output this to console when Button1 is clicked
@@ -48,4 +48,4 @@ public class ButtonManager : MonoBehaviour
     }
 
 
-}
+}     

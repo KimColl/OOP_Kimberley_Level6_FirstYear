@@ -10,8 +10,8 @@ public class Enemy : ConstantEnemy
     public override void Start()
     {
         base.Start();
-        //enemyDamage = GetComponent<IDamage>();
-        //enemyDamage.health = 2;
+        enemyDamage = GetComponent<IDamage>();
+        enemyDamage.health = 2;
     }
 
     // Update is called once per frame
@@ -19,6 +19,16 @@ public class Enemy : ConstantEnemy
     {
         base.Update();
         transform.position = Vector3.MoveTowards(transform.position, character.transform.position, 2f * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Destroy Coin");
+            Destroy(gameObject);
+            GameManager._GameInstance.ReduceHealth();
+        }
     }
     //private void OnTriggerEnter2D(Collider2D other)
     //{

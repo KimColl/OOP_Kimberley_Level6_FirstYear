@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    float startingTime = 10f;
-    float currentTime = 0f;
+    protected float startingTime = 8f;
+    protected float currentTime = 0f;
 
     //private variable
     [SerializeField] Text CountDownTimer;

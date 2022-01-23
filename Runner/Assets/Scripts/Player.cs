@@ -13,15 +13,15 @@ public class Player : MonoBehaviour
 
     [SerializeField] private LayerMask groundMask;
 
-    public static Player PlayerInstance
-    {
-        get { return _playerInstance; }
-    }
+    //public static Player PlayerInstance
+    //{
+    //    get { return _playerInstance; }
+    //}
 
     // is always called before the void Start() Method
     private void Awake()
     {
-        playerRigidBody = transform.GetComponent<Rigidbody2D>();
+        playerRigidBody= transform.GetComponent<Rigidbody2D>();
         playerBoxCollider = transform.GetComponent<BoxCollider2D>();
         if (_playerInstance != null && _playerInstance != this)
         {
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
         //update the position of the Player
         this.transform.position = new Vector2(newXPos, newYPos);
 
-        if (ground() && Input.GetKeyDown(KeyCode.Space))
+        if (Ground() && Input.GetKeyDown(KeyCode.Space))
         {
             float playerVelocity = 7f;
             playerRigidBody.velocity = Vector2.up * playerVelocity;
@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
         GameData.YMax();
     }
 
-    private bool ground()
+    private bool Ground()
     {
         RaycastHit2D groundRayCast = Physics2D.BoxCast(playerBoxCollider.bounds.center, playerBoxCollider.bounds.size, 0f, Vector2.down * .2f, groundMask);
         return groundRayCast.collider != null;

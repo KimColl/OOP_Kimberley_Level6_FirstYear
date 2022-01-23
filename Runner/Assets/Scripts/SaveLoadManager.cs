@@ -4,34 +4,35 @@ using UnityEngine;
 
 public class SaveLoadManager : MonoBehaviour
 {
-    SerializedData myserializedData;
+    SerializedData serializedData;
     public void Start()
     {
-        myserializedData = new SerializedData();
+        serializedData = new SerializedData();
     }
-    public void SaveMyData()
+    public void SaveData()
     {
-        myserializedData.ser_PlayerScore = GameData.PlayerScore;
-        myserializedData.ser_PlayerLives = GameData.PlayerLives;
-        myserializedData.ser_PlayerHighScore = GameData.PlayerHighScore;
+        serializedData.ser_PlayerScore = GameData.PlayerScore;
+        serializedData.ser_PlayerLives = GameData.PlayerLives;
+        serializedData.ser_PlayerHighScore = GameData.PlayerHighScore;
 
-        string jsontosave = JsonUtility.ToJson(myserializedData);
-        Debug.Log(jsontosave);
-        PlayerPrefs.SetString("RunnerData", jsontosave);
+        string s = JsonUtility.ToJson(serializedData);
+        Debug.Log(s);
+        PlayerPrefs.SetString("RunnerData", s);
 
     }
 
-    public void LoadMyData()
+    public void LoadData()
     {
         string loadedjson;
-        if (PlayerPrefs.HasKey("TanksData"))
+        if (PlayerPrefs.HasKey("RunnerData"))
         {
-            loadedjson = PlayerPrefs.GetString("TanksData");
-            myserializedData = JsonUtility.FromJson<SerializedData>(loadedjson);
-            GameData.PlayerScore = myserializedData.ser_PlayerScore;
-            GameData.PlayerLives = myserializedData.ser_PlayerLives;
-            GameData.PlayerHighScore = myserializedData.ser_PlayerHighScore;
+            loadedjson = PlayerPrefs.GetString("RunnerData");
+            serializedData = JsonUtility.FromJson<SerializedData>(loadedjson);
+            GameData.PlayerScore = serializedData.ser_PlayerScore;
+            GameData.PlayerLives = serializedData.ser_PlayerLives;
+            GameData.PlayerHighScore = serializedData.ser_PlayerHighScore;
         }
     }
+
 }
 
