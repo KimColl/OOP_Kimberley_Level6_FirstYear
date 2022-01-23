@@ -127,4 +127,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Welcome() //loads the first scene
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void Level1()
+    {
+        SceneManager.LoadScene("GameScene"); //loads the scene with the name GameScene
+    }
+
+
+    public void GameLevel2()
+    {
+        SceneManager.LoadScene("GameScene2"); //loads the scene with the name GameScene2 
+    }
+
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene("EndScene"); //loads the scene with the name EndScene
+    }
+
+    public void QuitGame() //will quit the game
+    {
+        Application.Quit();
+        Debug.Log("Quit");
+    }
+
 }

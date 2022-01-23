@@ -390,6 +390,14 @@ PrefabInstance:
       propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2305666207452623803, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 2305666207452623803, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1920
+      objectReference: {fileID: 0}
     - target: {fileID: 2305666207452623805, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -512,15 +520,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2305666207665174699, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00048828
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2305666207665174699, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 267.831
+      value: 172
       objectReference: {fileID: 0}
     - target: {fileID: 2305666207665174700, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
       propertyPath: m_fontSize
-      value: 120
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2305666207665174700, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
       propertyPath: m_margin.x
@@ -528,7 +536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2305666207665174700, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
       propertyPath: m_fontSizeBase
-      value: 120
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2305666208148453806, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
       propertyPath: m_SizeDelta.x
@@ -564,7 +572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2305666208251622435, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -361
+      value: -316
       objectReference: {fileID: 0}
     - target: {fileID: 2305666208572971352, guid: 887ec690f1ea55b4eac59ddf7cab4986, type: 3}
       propertyPath: m_FontData.m_FontSize
